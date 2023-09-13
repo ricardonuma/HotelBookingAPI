@@ -26,7 +26,7 @@ jobs:
         run: dotnet build --configuration Release ${{ github.workspace }}/HotelBookingAPI
 
       - name: dotnet publish
-        run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/HotelBookingAPI
+        run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
