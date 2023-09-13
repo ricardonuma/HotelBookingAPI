@@ -21,9 +21,26 @@ jobs:
         with:
           dotnet-version: '6.0.x'
           include-prerelease: true
+
+      - name: Find Project Directory
+      run: |
+        # Navigate to the root of the repository
+        cd $GITHUB_WORKSPACE
+
+        # List the contents of the workspace directory
+        ls -la
+
+        # If your project is in a subdirectory, navigate to that directory
+        cd path/to/your/project
+
+        # List the contents of the project directory
+        ls -la
+
+        # Now, you're in your project directory
+      shell: bash
       
       - name: Build with dotnet
-        run: dotnet build --configuration Release ${{env.DOTNET_ROOT}}\HotelBookingAPI
+        run: dotnet build --configuration Release ${{env.DOTNET_ROOT}}/src/HotelBookingAPI
 
       - name: dotnet publish
         run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
