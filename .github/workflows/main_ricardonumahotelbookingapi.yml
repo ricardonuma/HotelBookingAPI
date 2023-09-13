@@ -14,12 +14,6 @@ jobs:
     runs-on: windows-latest
 
     steps:
-      - name: Go to root Project
-        run: cd ${{env.DOTNET_ROOT}}
-        
-      - name: Find Project Directory
-        run: ls
-        
       - uses: actions/checkout@v2
 
       - name: Set up .NET Core
@@ -29,7 +23,7 @@ jobs:
           include-prerelease: true
       
       - name: Build with dotnet
-        run: dotnet build --configuration Release ${{env.DOTNET_ROOT}}/src/HotelBookingAPI
+        run: dotnet build --configuration Release $GITHUB_WORKSPACE
 
       - name: dotnet publish
         run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
