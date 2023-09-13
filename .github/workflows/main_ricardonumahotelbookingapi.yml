@@ -14,11 +14,11 @@ jobs:
     runs-on: windows-latest
 
     steps:
-      - name: Find Project Directory
+      - name: Go to root Project
         run: cd ${{env.DOTNET_ROOT}}
         
       - name: Find Project Directory
-        run: ls -la
+        run: ls
         
       - uses: actions/checkout@v2
 
