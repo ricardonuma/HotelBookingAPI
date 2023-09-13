@@ -23,21 +23,7 @@ jobs:
           include-prerelease: true
 
       - name: Find Project Directory
-      run: |
-        # Navigate to the root of the repository
-        cd $GITHUB_WORKSPACE
-
-        # List the contents of the workspace directory
-        ls -la
-
-        # If your project is in a subdirectory, navigate to that directory
-        cd path/to/your/project
-
-        # List the contents of the project directory
-        ls -la
-
-        # Now, you're in your project directory
-      shell: bash
+        run: cd ${{env.DOTNET_ROOT}} ls -la
       
       - name: Build with dotnet
         run: dotnet build --configuration Release ${{env.DOTNET_ROOT}}/src/HotelBookingAPI
